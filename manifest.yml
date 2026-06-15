@@ -1,0 +1,8 @@
+name: SSH Public Key
+category: Files
+description: SSH Public Key Manager
+icon: fa://key
+new_window: true
+tile:
+  sub_caption: |
+    

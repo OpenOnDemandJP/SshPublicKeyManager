@@ -1,0 +1,11 @@
+/.bundle/
+/vendor/bundle/
+*.gem
+/Gemfile.lock
+
+/log/
+/tmp/
+
+.DS_Store
+
+/memo

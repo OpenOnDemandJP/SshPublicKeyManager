@@ -1,0 +1,65 @@
+<% if @flash %>
+  <div class="alert alert-<%= h @flash["type"] %> alert-dismissible fade show" role="alert">
+    <%= h @flash["message"] %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
+
+<div class="card mb-4">
+  <div class="card-header text-bg-primary">Registered Public Keys</div>
+  <div class="card-body">
+    <% if @keys.empty? %>
+      <p class="text-muted mb-0">No public keys are registered.</p>
+    <% else %>
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Fingerprint</th>
+              <th>Comment</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @keys.each do |key| %>
+              <tr>
+                <% if key[:fingerprint] %>
+                  <td><span class="badge text-bg-secondary"><%= h key[:type] %></span></td>
+                  <td><code class="text-break"><%= h key[:fingerprint] %></code></td>
+                  <td><%= h key[:comment] %></td>
+                  <td class="text-end">
+                    <form method="post" action="<%= url("/keys/delete") %>"
+                          onsubmit="return confirm('Delete this public key?\n<%= h key[:fingerprint] %>');">
+                      <input type="hidden" name="authenticity_token" value="<%= csrf_token %>">
+                      <input type="hidden" name="fingerprint" value="<%= h key[:fingerprint] %>">
+                      <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                    </form>
+                  </td>
+                <% else %>
+                  <td><span class="badge text-bg-warning">Invalid</span></td>
+                  <td colspan="3"><code class="text-break"><%= h key[:line] %></code></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="card mb-4">
+  <div class="card-header text-bg-primary">Add a Public Key</div>
+  <div class="card-body">
+    <form method="post" action="<%= url("/keys") %>">
+      <input type="hidden" name="authenticity_token" value="<%= csrf_token %>">
+      <div class="mb-3">
+        <label for="public_key" class="form-label">Public key (paste one key at a time)</label>
+        <textarea class="form-control font-monospace" id="public_key" name="public_key" rows="3"
+                  placeholder="ssh-ed25519 AAAA... user@example" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+  </div>
+</div>
