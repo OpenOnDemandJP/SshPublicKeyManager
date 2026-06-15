@@ -13,7 +13,7 @@
 
 ブラウザでアプリを開くと、登録済みの公開鍵の一覧と、新規登録用のフォームが表示されます。
 
-![Screenshot](img/screen.png)
+![Screenshot](misc/screen.png)
 
 - **Registered Public Keys**: 登録済みの各鍵の種別・SHA256フィンガープリント・コメントが表示されます。**Delete** ボタンで鍵を削除できます（削除対象はフィンガープリントで識別されます）。
 - **Add a Public Key**: テキストエリアに公開鍵を1件（例: `id_ed25519.pub` の内容）貼り付けて **Add** をクリックします。登録前に形式が検証され、重複する鍵は拒否されます。
@@ -41,8 +41,11 @@ git clone https://github.com/OpenOnDemandJP/SshPublicKeyManager.git
 ```bash
 git clone https://github.com/OpenOnDemandJP/SshPublicKeyManager.git
 cd SshPublicKeyManager
+export BUNDLE_GEMFILE=$PWD/misc/Gemfile
 bundle install
 ```
+
+`misc/Gemfile` はローカルでのテスト専用です（OOD上での実行には不要なため、リポジトリのトップレベルには置いていません）。以降のコマンドも、同じシェルで `BUNDLE_GEMFILE` を設定したまま実行してください。
 
 ### 安全に試す（推奨）
 

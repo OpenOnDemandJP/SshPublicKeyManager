@@ -13,7 +13,7 @@ A simple Web app for viewing, adding, and removing SSH public keys in `${HOME}/.
 
 Open the app in your browser. The page shows your registered public keys and a form for adding a new one.
 
-![Screenshot](img/screen.png)
+![Screenshot](misc/screen.png)
 
 - **Registered Public Keys**: Lists each key's type, SHA256 fingerprint, and comment. Click **Delete** to remove a key (the fingerprint is used to identify which key to remove).
 - **Add a Public Key**: Paste a single public key (e.g. the contents of `id_ed25519.pub`) into the text area and click **Add**. The key is validated before being saved, and duplicate keys are rejected.
@@ -41,8 +41,11 @@ Clone the repository and install the dependencies.
 ```bash
 git clone https://github.com/OpenOnDemandJP/SshPublicKeyManager.git
 cd SshPublicKeyManager
+export BUNDLE_GEMFILE=$PWD/misc/Gemfile
 bundle install
 ```
+
+`misc/Gemfile` is only used for local testing (it's not needed to run the app on OOD, so it's not placed at the top level of the repository). Keep `BUNDLE_GEMFILE` set in the same shell for the commands below.
 
 ### Test safely (recommended)
 
