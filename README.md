@@ -80,9 +80,10 @@ cp ~/.ssh/authorized_keys ~/.ssh/authorized_keys.bak
 
 ```
 .
-├── app.rb     # Sinatra app (routes and logic for listing, adding, and deleting keys)
-├── config.ru  # Passenger / Rack entry point
-├── Gemfile    # Dependencies (sinatra; puma/rackup for development)
+├── app.rb        # Sinatra app (routes and logic for listing, adding, and deleting keys)
+├── config.ru     # Passenger / Rack entry point
+├── manifest.yml  # Open OnDemand app manifest
+├── misc/         # Files for local testing only (Gemfile, screenshot, etc.)
 └── views/
     ├── layout.erb  # Shared layout (loads Bootstrap)
     └── index.erb   # Key list and add-key form
