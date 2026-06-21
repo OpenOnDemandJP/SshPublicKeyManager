@@ -15,7 +15,8 @@ class App < Sinatra::Base
     navbar_bg:     "#212529",
     navbar_text:   "#ffffff",
     body_bg:       "#f8f9fa",
-    primary_color: "#0d6efd"
+    primary_color: "#0d6efd",
+    primary_text:  "#ffffff"
   }.freeze
 
   VALID_COLOR = /\A#[0-9a-fA-F]{3,8}\z/

@@ -44,7 +44,8 @@ cp appearance.yml.example appearance.yml
 navbar_bg:     "#212529"  # navbar background color
 navbar_text:   "#ffffff"  # navbar text and link color
 body_bg:       "#f8f9fa"  # page background color
-primary_color: "#0d6efd"  # card header and Add button color
+primary_color: "#0d6efd"  # card header and Add button background color
+primary_text:  "#ffffff"  # card header and Add button text color
 ```
 
 After editing, restart the app to apply changes.

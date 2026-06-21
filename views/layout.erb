@@ -10,9 +10,11 @@
     .navbar                        { background-color: <%= h @appearance[:navbar_bg] %>    !important; }
     .navbar .navbar-brand,
     .navbar .nav-link              { color:            <%= h @appearance[:navbar_text] %>  !important; }
-    .text-bg-primary               { background-color: <%= h @appearance[:primary_color] %> !important; color: #fff !important; }
+    .text-bg-primary               { background-color: <%= h @appearance[:primary_color] %> !important;
+                                     color:            <%= h @appearance[:primary_text] %>  !important; }
     .btn-primary                   { background-color: <%= h @appearance[:primary_color] %> !important;
-                                     border-color:     <%= h @appearance[:primary_color] %> !important; }
+                                     border-color:     <%= h @appearance[:primary_color] %> !important;
+                                     color:            <%= h @appearance[:primary_text] %>  !important; }
   </style>
 </head>
 <body>

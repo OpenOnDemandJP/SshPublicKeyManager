@@ -44,7 +44,8 @@ cp appearance.yml.example appearance.yml
 navbar_bg:     "#212529"  # ナビバーの背景色
 navbar_text:   "#ffffff"  # ナビバーのテキスト・リンク色
 body_bg:       "#f8f9fa"  # ページ背景色
-primary_color: "#0d6efd"  # カードヘッダーとAddボタンの色
+primary_color: "#0d6efd"  # カードヘッダーとAddボタンの背景色
+primary_text:  "#ffffff"  # カードヘッダーとAddボタンのテキスト色
 ```
 
 編集後はアプリを再起動すると反映されます。
