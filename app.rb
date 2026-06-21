@@ -5,11 +5,30 @@ require "open3"
 require "tempfile"
 require "fileutils"
 require "securerandom"
+require "yaml"
 
 # Manages SSH public keys (~/.ssh/authorized_keys): list, add, and delete.
 # Runs as an Open OnDemand Passenger app with the privileges of the
 # already-authenticated user.
 class App < Sinatra::Base
+  APPEARANCE_DEFAULTS = {
+    navbar_bg:     "#212529",
+    navbar_text:   "#ffffff",
+    body_bg:       "#f8f9fa",
+    primary_color: "#0d6efd"
+  }.freeze
+
+  VALID_COLOR = /\A#[0-9a-fA-F]{3,8}\z/
+
+  set :appearance, begin
+    config_file = File.join(__dir__, "appearance.yml")
+    loaded = File.exist?(config_file) ? (YAML.load_file(config_file, symbolize_names: true) || {}) : {}
+    APPEARANCE_DEFAULTS.each_with_object({}) do |(key, default), h|
+      value = loaded[key].to_s
+      h[key] = value.match?(VALID_COLOR) ? value : default
+    end
+  end
+
   enable :sessions
   set :session_secret, lambda {
     # Persist a per-user secret so sessions (and CSRF tokens) survive
@@ -78,6 +97,10 @@ class App < Sinatra::Base
     def set_flash(type, message)
       session[:flash] = { "type" => type, "message" => message }
     end
+  end
+
+  before do
+    @appearance = settings.appearance
   end
 
   get "/" do

@@ -32,6 +32,23 @@ cd /var/www/ood/apps/sys/
 git clone https://github.com/OpenOnDemandJP/SshPublicKeyManager.git
 ```
 
+## Customizing Appearance
+
+Copy `appearance.yml.example` to `appearance.yml` and edit the color values.
+
+```bash
+cp appearance.yml.example appearance.yml
+```
+
+```yaml
+navbar_bg:     "#212529"  # navbar background color
+navbar_text:   "#ffffff"  # navbar text and link color
+body_bg:       "#f8f9fa"  # page background color
+primary_color: "#0d6efd"  # card header and Add button color
+```
+
+After editing, restart the app to apply changes.
+
 ## Local Testing (Optional)
 
 ### Setup
@@ -80,10 +97,11 @@ cp ~/.ssh/authorized_keys ~/.ssh/authorized_keys.bak
 
 ```
 .
-├── app.rb        # Sinatra app (routes and logic for listing, adding, and deleting keys)
-├── config.ru     # Passenger / Rack entry point
-├── manifest.yml  # Open OnDemand app manifest
-├── misc/         # Files for local testing only (Gemfile, screenshot, etc.)
+├── app.rb                  # Sinatra app (routes and logic for listing, adding, and deleting keys)
+├── config.ru               # Passenger / Rack entry point
+├── manifest.yml            # Open OnDemand app manifest
+├── appearance.yml.example  # Sample appearance config (copy to appearance.yml to customize)
+├── misc/                   # Files for local testing only (Gemfile, screenshot, etc.)
 └── views/
     ├── layout.erb  # Shared layout (loads Bootstrap)
     └── index.erb   # Key list and add-key form

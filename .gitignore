@@ -1,3 +1,5 @@
+/appearance.yml
+
 /.bundle/
 /vendor/bundle/
 *.gem

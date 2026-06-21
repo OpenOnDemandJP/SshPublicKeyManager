@@ -32,6 +32,23 @@ cd /var/www/ood/apps/sys/
 git clone https://github.com/OpenOnDemandJP/SshPublicKeyManager.git
 ```
 
+## 外観のカスタマイズ
+
+`appearance.yml.example` を `appearance.yml` にコピーして色を編集します。
+
+```bash
+cp appearance.yml.example appearance.yml
+```
+
+```yaml
+navbar_bg:     "#212529"  # ナビバーの背景色
+navbar_text:   "#ffffff"  # ナビバーのテキスト・リンク色
+body_bg:       "#f8f9fa"  # ページ背景色
+primary_color: "#0d6efd"  # カードヘッダーとAddボタンの色
+```
+
+編集後はアプリを再起動すると反映されます。
+
 ## ローカルでのテスト（任意）
 
 ### セットアップ
@@ -80,10 +97,11 @@ cp ~/.ssh/authorized_keys ~/.ssh/authorized_keys.bak
 
 ```
 .
-├── app.rb        # Sinatraアプリ本体（一覧・登録・削除のルーティングとロジック）
-├── config.ru     # Passenger / Rack のエントリポイント
-├── manifest.yml  # Open OnDemand アプリのマニフェスト
-├── misc/         # ローカルテスト専用ファイル（Gemfile、スクリーンショット等）
+├── app.rb                  # Sinatraアプリ本体（一覧・登録・削除のルーティングとロジック）
+├── config.ru               # Passenger / Rack のエントリポイント
+├── manifest.yml            # Open OnDemand アプリのマニフェスト
+├── appearance.yml.example  # 外観設定のサンプル（appearance.yml にコピーして使用）
+├── misc/                   # ローカルテスト専用ファイル（Gemfile、スクリーンショット等）
 └── views/
     ├── layout.erb  # 共通レイアウト（Bootstrap読み込み）
     └── index.erb   # 鍵一覧・登録フォーム

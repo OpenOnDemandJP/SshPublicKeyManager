@@ -1,0 +1,11 @@
+# Appearance settings for SSH Public Key Manager.
+# Copy this file to appearance.yml and edit the color values.
+# After editing, restart the app (e.g. touch tmp/restart.txt on OOD) to apply changes.
+#
+# Values must be CSS hex colors: #RGB, #RRGGBB, or #RRGGBBAA.
+# Lines starting with "#" are comments and are ignored.
+
+navbar_bg:     "#212529"  # navbar background color
+navbar_text:   "#ffffff"  # navbar text and link color
+body_bg:       "#f8f9fa"  # page background color
+primary_color: "#0d6efd"  # card header and Add button color
