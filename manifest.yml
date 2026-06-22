@@ -1,6 +1,8 @@
 name: SSH Public Key
 category: Files
-description: SSH Public Key Manager
+description: |
+  View, add, and remove SSH public keys in ~/.ssh/authorized_keys
+  from your browser.
 icon: fa://key
 new_window: true
 tile:
