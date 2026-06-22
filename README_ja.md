@@ -2,6 +2,7 @@
 
 `${HOME}/.ssh/authorized_keys` に登録されているSSH公開鍵を、Webブラウザから一覧表示・登録・削除するためのシンプルなWebアプリです。Open OnDemand の Passenger App として動作させることを前提としています。
 
+- アプリケーションタイプ: File
 - **最新リリース:** [`v1.0`](https://github.com/OpenOnDemandJP/SshPublicKeyManager/releases/tag/v1.0)
 - **ライセンス:** MIT (see [LICENSE file](https://github.com/OpenOnDemandJP/SshPublicKeyManager/blob/main/LICENSE))
 - **必要要件:** Open OnDemand 3.0 以上、`ssh-keygen`
@@ -46,7 +47,7 @@ primary_color: "#0d6efd"  # カードヘッダーとAddボタンの背景色
 primary_text:  "#ffffff"  # カードヘッダーとAddボタンのテキスト色
 ```
 
-編集後はアプリを再起動すると反映されます。
+編集後はOpen OnDemandを再起動（ナビゲーションバーの「Help」の「Restart Web Server」をクリック）すると反映されます。
 
 ## ローカルでのテスト（オプション）
 

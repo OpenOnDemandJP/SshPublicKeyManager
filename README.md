@@ -47,7 +47,7 @@ primary_color: "#0d6efd"  # card header and Add button background color
 primary_text:  "#ffffff"  # card header and Add button text color
 ```
 
-After editing, restart the app to apply changes.
+After editing, restart Open OnDemand to apply changes (click **Restart Web Server** under **Help** in the navigation bar).
 
 ## Local Testing (Optional)
 
