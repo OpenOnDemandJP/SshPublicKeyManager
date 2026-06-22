@@ -62,7 +62,7 @@ export BUNDLE_GEMFILE=$PWD/misc/Gemfile
 bundle install
 ```
 
-`misc/Gemfile` はローカルでのテスト専用です（OOD上での実行には不要なため、リポジトリのトップレベルには置いていません）。以降のコマンドも、同じシェルで `BUNDLE_GEMFILE` を設定したまま実行してください。
+`misc/Gemfile` はローカルでのテスト専用です（Open OnDemand上での実行には不要なため、リポジトリのトップレベルには置いていません）。以降のコマンドも、同じシェルで `BUNDLE_GEMFILE` を設定したまま実行してください。
 
 ### 安全に試す（推奨）
 
