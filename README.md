@@ -1,27 +1,26 @@
 # SSH Public Key Manager
 
-A simple Web app for viewing, adding, and removing SSH public keys in `${HOME}/.ssh/authorized_keys` from a web browser. It is designed to run as an Open OnDemand Passenger App.
+A simple web application to view, add, and remove SSH public keys in `${HOME}/.ssh/authorized_keys` from a web browser. It is designed to run as an Open OnDemand Passenger App.
 
-## Features
+- **App type:** File
+- **Latest release:** [`v1.0`](https://github.com/OpenOnDemandJP/SshPublicKeyManager/releases/tag/v1.0)
+- **License:** MIT (see [LICENSE file](https://github.com/OpenOnDemandJP/SshPublicKeyManager/blob/main/LICENSE))
+- **Requirements:** Open OnDemand 3.0 or later, `ssh-keygen`
+- **Features**
+  - List registered public keys (type / SHA256 fingerprint / comment)
+  - Manage multiple public keys
+  - Add a new public key (with format validation and duplicate check)
 
-- List registered public keys (type / SHA256 fingerprint / comment)
-- Manage multiple public keys
-- Add a new public key (with format validation and duplicate check)
-- Delete a public key (by fingerprint)
+## Screenshot
+
+![Screenshot](misc/screen.png)
 
 ## Usage
 
 Open the app in your browser. The page shows your registered public keys and a form for adding a new one.
 
-![Screenshot](misc/screen.png)
-
 - **Registered Public Keys**: Lists each key's type, SHA256 fingerprint, and comment. Click **Delete** to remove a key (the fingerprint is used to identify which key to remove).
 - **Add a Public Key**: Paste a single public key (e.g. the contents of `id_ed25519.pub`) into the text area and click **Add**. The key is validated before being saved, and duplicate keys are rejected.
-
-## Requirements
-
-- Open OnDemand 4.2 or later
-- `ssh-keygen` (used for key validation and fingerprint lookup)
 
 ## Deploying to Open OnDemand
 
@@ -108,9 +107,22 @@ cp ~/.ssh/authorized_keys ~/.ssh/authorized_keys.bak
     └── index.erb   # Key list and add-key form
 ```
 
+## Contributing
+
+For discussions, see the [GitHub Discussions](https://github.com/OpenOnDemandJP/SshPublicKeyManager/discussions).
+
+## Troubleshooting
+
+For bugs or feature requests, [open an issue](https://github.com/OpenOnDemandJP/SshPublicKeyManager/issues) with detailed logs and reproduction steps.
+
 ## Security Notes
 
 - Public keys are validated with `ssh-keygen -lf` before being added. Invalid input is rejected.
 - Duplicate registrations are rejected if the fingerprint matches an existing key.
 - Permissions on `~/.ssh` (700) and `authorized_keys` (600) are set automatically as required by SSH.
 - CSRF protection is enabled via `Rack::Protection::AuthenticityToken`. The session signing secret is stored in `~/.config/ssh_key_manager/session_secret` (600) and persists across Passenger restarts.
+
+## Known Limitations
+
+- The public key storage location is fixed to `${HOME}/.ssh/authorized_keys`.
+- Environments where SSH public keys are managed outside of `authorized_keys` (e.g., directly in LDAP) are not supported.
