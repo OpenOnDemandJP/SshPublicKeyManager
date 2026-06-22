@@ -62,7 +62,7 @@ export BUNDLE_GEMFILE=$PWD/misc/Gemfile
 bundle install
 ```
 
-`misc/Gemfile` is only used for local testing (it's not needed to run the app on OOD, so it's not placed at the top level of the repository). Keep `BUNDLE_GEMFILE` set in the same shell for the commands below.
+`misc/Gemfile` is only used for local testing (it's not needed to run the app on Open OnDemand, so it's not placed at the top level of the repository). Keep `BUNDLE_GEMFILE` set in the same shell for the commands below.
 
 ### Test safely (recommended)
 
